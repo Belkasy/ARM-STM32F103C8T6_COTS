@@ -111,8 +111,7 @@ static void DIO_voidDecoder(Copy_u8RegisterID, Copy_u8PinID, Copy_u8PinConfig, C
     u8 L_ConcatenatedNibble = 0;
 
     L_ConcatenatedNibble |= (Copy_u8PinMode);
-    L_ConcatenatedNibble |= (Copy_u8PinConfig << 2);
+    L_ConcatenatedNibble |= (Copy_u8PinConfig << 2);  /* 2: because the shifted 2 bits */
+    Copy_u8RegisterID    |= (L_ConcatenatedNibble << Copy_u8PinID * 4); /* 4: because the shifted nibble */
 
-    Copy_u8RegisterID    |= (L_ConcatenatedNibble << Copy_u8PinID);
-    
 }/** @end DIO_voidDecoder */
