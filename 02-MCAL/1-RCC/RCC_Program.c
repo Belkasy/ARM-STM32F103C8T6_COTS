@@ -19,7 +19,6 @@
 !-                               Reset Clock Control Driver Program
 ----------------------------------------------------------------------------------------------------
 */
-#define RCC_CLOCK_TYPE (SYSTEM_CLOCK_HSI)
 
 void RCC_voidSystemClockInit(void)
 {
@@ -49,9 +48,9 @@ void RCC_voidEnableClock(cu8 Copy_cu8BusID, cu8 Copy_cu8PeripheralID)
 {
     switch(Copy_cu8BusID)
     {
-        case SYSTEM_BUS_AHB  : BIT_WRT(*RCC[AHBENR],  Copy_cu8PeripheralID, BIT_ACTIVATE); break;
-        case SYSTEM_BUS_APB1 : BIT_WRT(*RCC[APB1ENR], Copy_cu8PeripheralID, BIT_ACTIVATE); break;
-        case SYSTEM_BUS_APB2 : BIT_WRT(*RCC[APB2ENR], Copy_cu8PeripheralID, BIT_ACTIVATE); break;
+        case SYSTEM_BUS_AHB  : BIT_WRT(*RCC[AHBENR_ID],  Copy_cu8PeripheralID, BIT_ACTIVATE); break;
+        case SYSTEM_BUS_APB1 : BIT_WRT(*RCC[APB1ENR_ID], Copy_cu8PeripheralID, BIT_ACTIVATE); break;
+        case SYSTEM_BUS_APB2 : BIT_WRT(*RCC[APB2ENR_ID], Copy_cu8PeripheralID, BIT_ACTIVATE); break;
         default: return; /** @todo error handler */
     }
 }/** @end RCC_voidEnableClock */
@@ -60,9 +59,9 @@ void RCC_voidDisableClock(cu8 Copy_cu8BusID, cu8 Copy_cu8PeripheralID)
 {
     switch(Copy_cu8BusID)
     {
-        case SYSTEM_BUS_AHB  : BIT_WRT(*RCC[AHBENR],  Copy_cu8PeripheralID, BIT_ACTIVATE); break;
-        case SYSTEM_BUS_APB1 : BIT_WRT(*RCC[APB1ENR], Copy_cu8PeripheralID, BIT_ACTIVATE); break;
-        case SYSTEM_BUS_APB2 : BIT_WRT(*RCC[APB2ENR], Copy_cu8PeripheralID, BIT_ACTIVATE); break;
+        case SYSTEM_BUS_AHB  : BIT_WRT(*RCC[AHBENR_ID],  Copy_cu8PeripheralID, BIT_ACTIVATE); break;
+        case SYSTEM_BUS_APB1 : BIT_WRT(*RCC[APB1ENR_ID], Copy_cu8PeripheralID, BIT_ACTIVATE); break;
+        case SYSTEM_BUS_APB2 : BIT_WRT(*RCC[APB2ENR_ID], Copy_cu8PeripheralID, BIT_ACTIVATE); break;
         default: return; /** @todo error handler */
     }
 }/** @end RCC_voidDisableClock */

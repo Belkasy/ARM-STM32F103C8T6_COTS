@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "rcc_interface.h": "c",
+        "rcc_config.h": "c",
+        "stdbool.h": "c"
+    }
+}

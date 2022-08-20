@@ -157,12 +157,6 @@ enum STM32F103C8T6_PIN_STATE
     DIO_HIGH
 };
 
-enum STM32F103C8T6_PIN_DIRECTION
-{
-    DIO_INPUT,
-    DIO_OUTPUT
-};
-
 enum STM32F103C8T6_PIN_CHANNEL
 {
     DIO_DIGITAL,
@@ -178,24 +172,31 @@ enum STM32F103C8T6_PIN_FUNCTION
     USART
 };
 
-enum STM32F103C8T6_PIN_INPUT_MODES
-{   
-    DIO_INPUT_ANALOG,       /** @note: */
-    DIO_INPUT_FLOATING,     /** @note: */
-    DIO_INPUT_PULLUP,       /** @note: */
-    DIO_INPUT_PULLDOWN      /** @note: */
+enum STM32F103C8T6_PIN_MODE
+{
+    DIO_INPUT              = 0b00,
+    DIO_OUTPUT_2MHZ        = 0b10,
+    DIO_OUTPUT_10MHZ       = 0b01,
+    DIO_OUTPUT_50MHZ       = 0b11
 };
 
-enum STM32F103C8T6_PIN_OUTPUT_MODES
+enum STM32F103C8T6_PIN_INPUT_CONFIG
 {   
-    DIO_OUTPUT_PUSHPULL,     /** @note: */
-    DIO_OUTPUT_OPENDRAIN,   /** @note: */
+    DIO_INPUT_ANALOG        = 0b00,     /** @note: */
+    DIO_INPUT_FLOATING      = 0b01,     /** @note: */
+    DIO_INPUT_PULLUPDOWN    = 0b10      /** @note: */
 };
 
-enum STM32F103C8T6_PIN_AFIO_MODES
+enum STM32F103C8T6_PIN_OUTPUT_CONFIG
 {   
-    DIO_AFIO_OPENDRAIN,     /** @note: */
-    DIO_AFIO_PUSHPULL       /** @note: */
+    DIO_OUTPUT_PUSHPULL     = 0b00,    /** @note: */
+    DIO_OUTPUT_OPENDRAIN    = 0b01     /** @note: */
+};
+
+enum STM32F103C8T6_PIN_AFIO_CONFIG
+{   
+    DIO_AFIO_OPENDRAIN      = 0b11,     /** @note: */
+    DIO_AFIO_PUSHPULL       = 0b10      /** @note: */
 };
 
 /*
@@ -208,12 +209,10 @@ enum STM32F103C8T6_PIN_AFIO_MODES
 typedef struct
 {
     u8 Channel;     /** @note: */
-    u8 PinType;     /** @note: Digital/Analog */
-    u8 Direction;   /** @note: Input/Output */
-    u8 Mode;        /** @note: Different Modes */  
+    u8 PinConfig;   /** @note: Digital/Analog */
+    u8 PinMode;     /** @note: Input/Output */
     u8 Function;    /** @note: */
 }ST_ConfigParameters_t;
-
 
 /*
 ----------------------------------------------------------------------------------------------------
@@ -221,5 +220,7 @@ typedef struct
 ----------------------------------------------------------------------------------------------------
 */
 
+static void DIO_SetPinStatus(u8 Copy_u8RegisterID, u8 Copy_u8PinID, u8 Copy_u8PinConfig, u8 Copy_u8PinMode);
+static void DIO_voidDecoder(u8 Copy_u8RegisterID, u8 Copy_u8PinID, u8 Copy_u8PinConfig, u8 Copy_u8PinMode);
 
 #endif /* _DIO_PRIVATE_H */

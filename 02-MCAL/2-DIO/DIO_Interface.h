@@ -21,8 +21,8 @@
 */
 
 void DIO_voidSystemIntialization(void);
-void DIO_voidSetPinDirection(u32 Copy_u32PortID, u32 Copy_u32PinID);
-void DIO_voidSetPinValue(u32 Copy_u32PortID, u32 Copy_u32PinID);
+void DIO_voidSetPinDirection(u32 Copy_u32PortID, u32 Copy_u32PinID, u8 Copy_u8Direction);
+void DIO_voidSetPinValue(u32 Copy_u32PortID, u32 Copy_u32PinID, u8 Copy_u8Value);
 void DIO_voidGetPinValue(u32 Copy_u32PortID, u32 Copy_u32PinID, u8 *Address_u8PinValue);
 
 #endif /* _DIO_INTERFACE_H */

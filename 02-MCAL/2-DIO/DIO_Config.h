@@ -33,7 +33,7 @@
 */
 #define OUTPUT_PIN_SPEED    OUTPUT_PIN_2MHZ
 
-ST_ConfigParameters_t GPIOA_ConfigParametersTable[]
+ST_ConfigParameters_t GPIOA_ConfigParametersTable[] = 
 {
 /*   Channel - PinType - Direction    - Mode -        Function       */
     { 0x00, DIO_DIGITAL, DIO_INPUT, DIO_INPUT_FLOATING, GPIO }, /** @note GPIOA_PINA0  */
@@ -54,7 +54,7 @@ ST_ConfigParameters_t GPIOA_ConfigParametersTable[]
     {}  /** @note GPIOA_PINA15 */
 };
 
-ST_ConfigParameters_t GPIOB_ConfigParametersTable[]
+ST_ConfigParameters_t GPIOB_ConfigParametersTable[] =
 {
 /*   Channel - PinType - Direction - Data -  Function       */
     {}, /** @note GPIOB_PINB0  */
@@ -75,7 +75,7 @@ ST_ConfigParameters_t GPIOB_ConfigParametersTable[]
     {}  /** @note GPIOB_PINB15 */
 };
 
-ST_ConfigParameters_t GPIOC_ConfigParametersTable[]
+ST_ConfigParameters_t GPIOC_ConfigParametersTable[] = 
 {
 /*   Channel - PinType - Direction - Data -  Function       */
     {}, /** @note GPIOC_PINC0 */

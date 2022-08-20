@@ -59,66 +59,65 @@ u32 volatile * const RCC[RCC_REGISTERS_NUM] =
 */
 
 /** @defgroup SYSTEM BUS CONTROLLER */
-#define   SYSTEM_BUS_AHB           ( (cu8) (0b0000) )        /* Advanced High Performance Bus */
-#define   SYSTEM_BUS_APB1          ( (cu8) (0b0001) )        /* Advanced Performance Bus 1 */
-#define   SYSTEM_BUS_APB2          ( (cu8) (0b0010) )        /* Advanced Performance Bus 2 */
+#define   SYSTEM_BUS_AHB           ( (0b0000) )        /* Advanced High Performance Bus */
+#define   SYSTEM_BUS_APB1          ( (0b0001) )        /* Advanced Performance Bus 1 */
+#define   SYSTEM_BUS_APB2          ( (0b0010) )        /* Advanced Performance Bus 2 */
 
-#define   SYSTEM_PLL               ( (cu8) (0b0011) )        /* Phase Locked Loop ID */
-
+#define   SYSTEM_PLL               ( (0b0011) )        /* Phase Locked Loop ID */
 
 /** @defgroup SYSTEM INPUT CLOCK SOURCE */
-#define   SYSTEM_CLOCK_LSE         ( (cu8) (0b0000) )      /* Low Speed External Clock Source */
-#define   SYSTEM_CLOCK_LSI         ( (cu8) (0b0001) )      /* Low Speed Internal Clock Source */
-#define   SYSTEM_CLOCK_HSE_CRYSTAL ( (cu8) (0b0010) )      /* High Speed External Clock Source - CRYSTAL */
-#define   SYSTEM_CLOCK_HSE_RC      ( (cu8) (0b0011) )      /* High Speed External Clock Source - RC    */
-#define   SYSTEM_CLOCK_HSI         ( (cu8) (0b0100) )     /* High Speed Internal Clock Source */
-#define   SYSTEM_CLOCK_PLL         ( (cu8) (0b0101) )     /* Phase Locked Loop Clock Source */
+#define   SYSTEM_CLOCK_LSE         ( (0b0000) )      /* Low Speed External Clock Source */
+#define   SYSTEM_CLOCK_LSI         ( (0b0001) )      /* Low Speed Internal Clock Source */
+#define   SYSTEM_CLOCK_HSE_CRYSTAL ( (0b0010) )      /* High Speed External Clock Source - CRYSTAL */
+#define   SYSTEM_CLOCK_HSE_RC      ( (0b0011) )      /* High Speed External Clock Source - RC    */
+#define   SYSTEM_CLOCK_HSI         ( (0b0100) )      /* High Speed Internal Clock Source */
+#define   SYSTEM_CLOCK_PLL         ( (0b0101) )      /* Phase Locked Loop Clock Source */
 
 /** @defgroup PLL INPUT CLOCK SOURCE */
-#define   PLL_INPUT_HSI_DIV_2      ( (cu8) (0b0000) ) 
-#define   PLL_INPUT_HSE_DIV_2      ( (cu8) (0b0001) ) 
-#define   PLL_INPUT_HSE_DIRECT     ( (cu8) (0b0010) ) 
+#define   PLL_INPUT_HSI_DIV_2      ( (0b0000) ) 
+#define   PLL_INPUT_HSE_DIV_2      ( (0b0001) ) 
+#define   PLL_INPUT_HSE_DIRECT     ( (0b0010) ) 
 
 /** @defgroup AHB PRESCALERS */
-#define    AHB_PRESCALER_1        ( (cu8) (0b0000) )
-#define    AHB_PRESCALER_2        ( (cu8) (0b1000) )
-#define    AHB_PRESCALER_4        ( (cu8) (0b1001) )
-#define    AHB_PRESCALER_8        ( (cu8) (0b1010) )
-#define    AHB_PRESCALER_16       ( (cu8) (0b1011) )
-#define    AHB_PRESCALER_64       ( (cu8) (0b1100) )
-#define    AHB_PRESCALER_128      ( (cu8) (0b1101) )
-#define    AHB_PRESCALER_256      ( (cu8) (0b1110) )
-#define    AHB_PRESCALER_512      ( (cu8) (0b1111) )
+#define    AHB_PRESCALER_1        ( (0b0000) )
+#define    AHB_PRESCALER_2        ( (0b1000) )
+#define    AHB_PRESCALER_4        ( (0b1001) )
+#define    AHB_PRESCALER_8        ( (0b1010) )
+#define    AHB_PRESCALER_16       ( (0b1011) )
+#define    AHB_PRESCALER_64       ( (0b1100) )
+#define    AHB_PRESCALER_128      ( (0b1101) )
+#define    AHB_PRESCALER_256      ( (0b1110) )
+#define    AHB_PRESCALER_512      ( (0b1111) )
 
 /** @defgroup ABP1 PRESCALERS */
-#define   APB1_PRESCALER_1        ( (cu8) (0b000) )
-#define   APB1_PRESCALER_2        ( (cu8) (0b100) )
-#define   APB1_PRESCALER_4        ( (cu8) (0b101) )
-#define   APB1_PRESCALER_8        ( (cu8) (0b110) )
-#define   APB1_PRESCALER_16       ( (cu8) (0b111) )
+#define   APB1_PRESCALER_1        ( (0b000) )
+#define   APB1_PRESCALER_2        ( (0b100) )
+#define   APB1_PRESCALER_4        ( (0b101) )
+#define   APB1_PRESCALER_8        ( (0b110) )
+#define   APB1_PRESCALER_16       ( (0b111) )
 
 /** @defgroup ABP2 PRESCALERS */ 
-#define    APB2_PRESCALER_1       ( (cu8) (0b000) )
-#define    APB2_PRESCALER_2       ( (cu8) (0b100) )
-#define    APB2_PRESCALER_4       ( (cu8) (0b101) )
-#define    APB2_PRESCALER_8       ( (cu8) (0b110) )
-#define    APB2_PRESCALER_16      ( (cu8) (0b111) )
+#define    APB2_PRESCALER_1       ( (0b000) )
+#define    APB2_PRESCALER_2       ( (0b100) )
+#define    APB2_PRESCALER_4       ( (0b101) )
+#define    APB2_PRESCALER_8       ( (0b110) )
+#define    APB2_PRESCALER_16      ( (0b111) )
 
-#define  PLL_MUL_2    ( (cu8) (0b0000) )
-#define  PLL_MUL_3    ( (cu8) (0b0001) )
-#define  PLL_MUL_4    ( (cu8) (0b0010) )
-#define  PLL_MUL_5    ( (cu8) (0b0011) )
-#define  PLL_MUL_6    ( (cu8) (0b0100) )
-#define  PLL_MUL_7    ( (cu8) (0b0101) )
-#define  PLL_MUL_8    ( (cu8) (0b0110) )
-#define  PLL_MUL_9    ( (cu8) (0b0111) )
-#define  PLL_MUL_10   ( (cu8) (0b1000) )
-#define  PLL_MUL_11   ( (cu8) (0b1001) )
-#define  PLL_MUL_12   ( (cu8) (0b1010) )
-#define  PLL_MUL_13   ( (cu8) (0b1011) )
-#define  PLL_MUL_14   ( (cu8) (0b1100) )
-#define  PLL_MUL_15   ( (cu8) (0b1101) )
-#define  PLL_MUL_16   ( (cu8) (0b1110) )
+#define  PLL_MUL_2    ( (0b0000) )
+#define  PLL_MUL_3    ( (0b0001) )
+#define  PLL_MUL_4    ( (0b0010) )
+#define  PLL_MUL_5    ( (0b0011) )
+#define  PLL_MUL_6    ( (0b0100) )
+#define  PLL_MUL_7    ( (0b0101) )
+#define  PLL_MUL_8    ( (0b0110) )
+#define  PLL_MUL_9    ( (0b0111) )
+#define  PLL_MUL_10   ( (0b1000) )
+#define  PLL_MUL_11   ( (0b1001) )
+#define  PLL_MUL_12   ( (0b1010) )
+#define  PLL_MUL_13   ( (0b1011) )
+#define  PLL_MUL_14   ( (0b1100) )
+#define  PLL_MUL_15   ( (0b1101) )
+#define  PLL_MUL_16   ( (0b1110) )
 
 enum RCC_CR_BITS
 {
