@@ -58,6 +58,7 @@ typedef enum BIT_STATE
     BIT_ACTIVATE
 }bit_t;
 
+#define NULL ( (void *) (0) )
 /** @defgroup basic building block structs */
 /**
  * @brief basic union type for the generic register.

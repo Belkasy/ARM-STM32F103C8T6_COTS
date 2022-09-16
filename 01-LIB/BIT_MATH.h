@@ -31,12 +31,11 @@
 #define BIT_GET(REG, BIT_NUM)   	 ( (REG)  &   (1 << (BIT_NUM))    ) /* Reads the bit  		   */
 
 /** @defgroup register level */
-#define REG_SET(REG)        ( (REG) |= (0xFF) ) /* Sets all the bits in the register as '1'	   */
-#define REG_CLR(REG)        ( (REG) &= (0x00) ) /* Sets all the bits in the register as '0'    */
-#define REG_GET(REG)		( (REG)	& (0xFF)  )
-#define REG_TOG(REG)        ( (REG) ^= (REG)  ) /* Sets all the bits in the register as '~BIT' */
-#define REG_WRT(REG, NUM)   ( (REG)  = (NUM)  ) /* Sets all the bits in the register as 'NUM'  */
-
+#define REG_SET(REG)        ( (REG) |= ~(0x0)  ) /* Sets all the bits in the register as '1'	   */
+#define REG_CLR(REG)        ( (REG) &= ~(REG)  ) /* Sets all the bits in the register as '0'    */
+#define REG_TOG(REG)        ( (REG) ^=  (REG)  ) /* Sets all the bits in the register as '~BIT' */
+#define REG_WRT(REG, NUM)   ( (REG)  =  (NUM)  ) /* Sets all the bits in the register as 'NUM'  */
+#define REG_GET(REG)			  ((REG))																 
 //#define REG_SWP(REG1, REG2) ( () /* Swaps two registers  */
 
 #endif /* __BIT_MATH_H__ */
