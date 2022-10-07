@@ -19,6 +19,15 @@
 ----------------------------------------------------------------------------------------------------
 */
 
+/**
+ * @brief: Imporatnt general defines
+ */
+/* Disable global interrupts */
+#define _disable_irqs_()    STM32F103C8Tx_DisableGlobalInterrupts
+/* Enable global interrupts */
+#define _enable_irqs_()     STM32F103C8Tx_EnableGlobalInterrupts
+
+
 enum EXTIx_ID
 {   			  /* System ID */
 	NVIC_WWDG_ID		= 0,

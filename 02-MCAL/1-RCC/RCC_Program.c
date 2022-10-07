@@ -208,20 +208,20 @@ static void RCC_voidDecoder(cu8 Copy_cu8Bus, cu8 Copy_cu8Value)
    switch (Copy_cu8Bus)
    {
         case SYSTEM_BUS_AHB :   
-				RCC->CFGR &=  (u32) (~( (0b1111) << (HPRE_4) ));
-				RCC->CFGR |=  (u32) ((Copy_cu8Value) << (HPRE_4));
+							RCC->CFGR &=  (u32) (~( (0b1111) << (HPRE_4) ));
+							RCC->CFGR |=  (u32) ((Copy_cu8Value) << (HPRE_4));
             break;
         case SYSTEM_BUS_APB1:
-				RCC->CFGR &=  (u32) (~( (0b111) << (PPRE1_8) ));
-				RCC->CFGR |=  (u32) ((Copy_cu8Value) << (PPRE1_8));
+							RCC->CFGR &=  (u32) (~( (0b111) << (PPRE1_8) ));
+							RCC->CFGR |=  (u32) ((Copy_cu8Value) << (PPRE1_8));
             break;
         case SYSTEM_BUS_APB2:
-				RCC->CFGR &=  (u32) (~( (0b111) << (PPRE2_11) ));
-				RCC->CFGR |=  (u32) ((Copy_cu8Value) << (PPRE2_11));
+							RCC->CFGR &=  (u32) (~( (0b111) << (PPRE2_11) ));
+							RCC->CFGR |=  (u32) ((Copy_cu8Value) << (PPRE2_11));
             break;
         case  SYSTEM_PLL:   
-				RCC->CFGR &=  (u32) (~( (0b111) << (PLLMUL_18) ));
-				RCC->CFGR |=  (u32) ((Copy_cu8Value) << (PLLMUL_18));
+							RCC->CFGR &=  (u32) (~( (0b111) << (PLLMUL_18) ));
+							RCC->CFGR |=  (u32) ((Copy_cu8Value) << (PLLMUL_18));
             break;
         default: return; /** @todo error handler */
    }

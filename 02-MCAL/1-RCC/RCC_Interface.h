@@ -27,6 +27,7 @@ enum RCC_AHBENR_BITS
     DMA2EN      = 1,         /* R/W, Enable DMA2  Clock */
     SRAMEN      = 2,         /* R/W, Enable SRAM  Clock */
     FLITFEN     = 3,         /* R/W, Enable FLITF Clock */
+    FPEC        = 4,         /* R/W, Enable FPEC  Clock */
     CRCEN       = 6,         /* R/W, Enable CRC   Clock */
     FSMCEN      = 8,         /* R/W, Enable FSMC  Clock */
     SDIOEN      = 10         /* R/W, Enable SDIO  Clock */

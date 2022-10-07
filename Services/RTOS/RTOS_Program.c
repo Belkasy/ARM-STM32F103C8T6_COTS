@@ -21,10 +21,29 @@
 ----------------------------------------------------------------------------------------------------
 */
 
-/** @def: Array of thread struct */
-__ST_OSThread_t __RTOS_Threads[__NUM_OF_THREADS] = { NULL };
-
 static u16 volatile TickCounter = 0;
+
+/**
+ * @def: OS Threads struct
+ * @brief:
+ *  This list will contain the threads things.
+ */
+static __ST_OSThread_t volatile
+__RTOS_Threads[__NUM_OF_THREADS] = { NULL };
+/**
+ * @def: OS Threads ready list.
+ * @brief:
+ *  This list will contain the ready stated threads.
+ */
+static __ST_OSList_t volatile
+__RTOS_ReadyList[__MAX_OS_PRIORITES] = { NULL };
+/**
+ * @def: OS Threads waiting list.
+ * @brief:
+ *  This list will contain the waiting stated threads.
+ */
+static __ST_OSList_t volatile
+__RTOS_WaitingList[__MAX_OS_PRIORITES] = { NULL };
 
 /*
 ----------------------------------------------------------------------------------------------------
@@ -44,13 +63,9 @@ void RTOS_voidCreateThread(u8 Copy_u8ThreadID,
 void RTOS_voidStart(void)
 {
     /** @defgroup: Init the tick timer */
-    /**
-     * @brief:
-     *  SysTick: Periodically 1ms interrupt.
-     */
     SYSTICK_voidInit();
     SYSTICK_voidIntervalPeriodic(__OS_PERIODIC_TIME);
-    SYSTICK_voidSetCallBack(voidScheduler);
+    SYSTICK_voidSetCallBack(voidNaiveScheduler);
 }/** @end RTOS_voidStart */
 
 /*
@@ -71,7 +86,7 @@ void RTOS_voidStart(void)
  */
 static void voidNaiveScheduler(void)
 {
-    for(u8 L_u8ThreadID = 0; (L_u8ThreadID < NUM_OF_THREADS); ++L_u8ThreadID)
+    for(u8 L_u8ThreadID = 0; (L_u8ThreadID < __NUM_OF_THREADS); ++L_u8ThreadID)
     {
         if( (__RTOS_Threads[L_u8ThreadID].ThreadFunction != NULL) &&
             (__RTOS_Threads[L_u8ThreadID].State == Thread_Ready) )

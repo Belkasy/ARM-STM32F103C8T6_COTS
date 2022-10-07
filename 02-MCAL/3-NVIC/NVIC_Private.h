@@ -42,6 +42,20 @@
 ----------------------------------------------------------------------------------------------------
 */
 
+/*
+#define STM32F103C8Tx_DisableGlobalInterrupts()   
+{                                      
+    asm volatile ("MOV R0, #0x01");
+    asm volatile ("MSR PRIMASK, R0");
+}
+
+#define STM32F103C8Tx_EnableGlobalInterrupts()
+{
+    asm volatile ("MOV R0, #0x00");
+    asm volatile ("MSR PRIMASK, R0");
+}
+
+*/
 
 /*
 ----------------------------------------------------------------------------------------------------
