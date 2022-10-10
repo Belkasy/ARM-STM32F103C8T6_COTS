@@ -25,9 +25,8 @@ void IWDT_voidInit(void);
 void IWDT_voidCounterStart(u16 Copy_u16CounterValue);
 void IWDT_voidCounterStop(void);
 
-void WWDT_voidInit(void);
-void WWDT_voidDisable(void);
-void WWDT_voidCounterStart(u16 Copy_u16CounterValue);
-void WWDT_voidCounterStop(void);
+void WWDT_voidStart(float millis);
+void WWDT_voidRestart(void);
+void WWDT_voidStop(void);
 
 #endif /* _WATCHDOG_INTERFACE_H */

@@ -36,11 +36,24 @@ typedef struct
 ----------------------------------------------------------------------------------------------------
 */
 
+typedef enum EN_FPECerrorState_t
+{
+    FLASH_WRITE_OK,
+    HWORD_WRITE_OK,
+    PAGE_ERASE_OK,
+    MASS_ERASE_OK,
+    NOK
+}EN_FPECerrorState_t;
+
 /** @defgroup: Keys used */
 #define FPEC_ACCESS_KEY1    (0x45670123U)
 #define FPEC_ACCESS_KEY2    (0xCDEF89ABU)
 #define FPEC_ACCESS_RDPRT   (0x00A5U)
 
+#define SET_MEM16(ADDRESS)         ( *((u16 volatile *) (ADDRESS)) )
+#define GET_MEM16(ADDRESS)         ( *((u16 volatile *) (ADDRESS)) )
+#define WRT_MEM16(ADDRESS, DATA)   ( SET_MEM16(ADDRESS) = (DATA))
+#define DATA_ASSERT(ADDRESS, DATA) ( (GET_MEM16(ADDRESS) == (DATA)) )
 
 enum ACR_BITS
 {
@@ -83,12 +96,20 @@ enum OBR_BITS
     nRST_STDBY = 4
 };
 
+/** @defgroup: FPEC_LATENCY */
+#define FPEC_LATENCY_ZERO (0u)
+#define FPEC_LATENCY_ONE  (1u)
+#define FPEC_LATENCY_TWO  (2u)
+
 /*
 ----------------------------------------------------------------------------------------------------
 !-                                        FUNCTIONS PROTOTYPE
 ----------------------------------------------------------------------------------------------------
 */
 
+//static void voidUnlockFPEC(void);
 
+//static EN_FPECerrorState_t
+//FPEC_voidWriteHalfWord(u32 Copy_u32MemoryAddress, u16 Copy_u16Data);
 
 #endif /* _FPEC_PRIVATE_H */

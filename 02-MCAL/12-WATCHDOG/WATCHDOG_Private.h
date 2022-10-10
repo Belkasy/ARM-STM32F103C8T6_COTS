@@ -33,14 +33,14 @@ typedef struct
     u32 volatile SR;
 }ST_WWDTRegisters_t;
 
-#define WWDT    ( (ST_WWDTRegisters_t volatile * const) (0x40002C200) )
-
+#define WWDT    ( (ST_WWDTRegisters_t volatile * const) (0x40002C00) )
 
 /*
 ----------------------------------------------------------------------------------------------------
 !-                                           Defines
 ----------------------------------------------------------------------------------------------------
 */
+#define WWDT_EQ(millis, mul) ( (((millis * 36000.0)/(4096 * mul))-1) )
 
 /** @defgroup: IWDT Defines */
 #define IWDT_ACCESS_KEY     (0x5555U)
@@ -57,10 +57,10 @@ typedef struct
 #define IWDT_PRESCALER_256  (0x06U)
 
 /** @defgroup: WWDT Prescaler */
-#define WWDT_PRESCALER_1 (0x00U)
-#define WWDT_PRESCALER_2 (0x01U)
-#define WWDT_PRESCALER_4 (0x02U)
-#define WWDT_PRESCALER_8 (0x03U)
+#define WWDT_PRESCALER_1    (0x00U)
+#define WWDT_PRESCALER_2    (0x01U)
+#define WWDT_PRESCALER_4    (0x02U)
+#define WWDT_PRESCALER_8    (0x03U)
 
 
 /*

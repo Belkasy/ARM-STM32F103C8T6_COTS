@@ -39,6 +39,13 @@ typedef struct
 ----------------------------------------------------------------------------------------------------
 */
 
+typedef enum EN_UsartErrorState_t
+{
+	USART_TRANSMIT_OK,
+	USART_RECEIVE_OK,
+	USART_NOK
+}EN_UsartErrorState_t;
+
 typedef void (*USART_CallBackFunctionFormat)(void);
 #define NUM_OF_USART    (3U)
 #define OVERSAMPLE_8	(8U)
@@ -133,10 +140,10 @@ static void voidSetUsart1StopBits(u8 Copy_u8Usart1StopBits);
 static void voidSetUsart2StopBits(u8 Copy_u8Usart2StopBits);
 static void voidSetUsart3StopBits(u8 Copy_u8Usart3StopBits);
 
-static void voidUsartTransmitViaInterrupt(ST_USART_REGISTERS_t *Copy_Usart,
+static void voidUsartTransmitViaInterrupt(ST_USART_REGISTERS_t volatile *Copy_Usart,
                                           u8 *Address_u8TxBuffer,
-                                          u32 *Address_u32TxCounter);
-static void voidUsartRecieveViaInterrupt(ST_USART_REGISTERS_t *Copy_Usart,
+                                          u32 volatile *Address_u32TxCounter);
+static void voidUsartRecieveViaInterrupt(ST_USART_REGISTERS_t volatile *Copy_Usart,
                                          u8 *Address_u8TxBuffer,
-                                         u32 *Address_u32TxCounter);
+                                         u32 volatile *Address_u32TxCounter);
 #endif /* _USART_PRIVATE_H */

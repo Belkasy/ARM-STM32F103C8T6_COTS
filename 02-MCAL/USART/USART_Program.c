@@ -455,9 +455,9 @@ static void voidCalculateBaudRate(u32 Copy_u32BaudRate, u16 *Address_u16BRRValue
     *Address_u16BRRValue  |= (L_u8Fraction);
 }/** @end USART1_voidRecieveData */
 
-static void voidUsartTransmitViaInterrupt(ST_USART_REGISTERS_t *Copy_Usart,
+static void voidUsartTransmitViaInterrupt(ST_USART_REGISTERS_t volatile *Copy_Usart,
                                           u8 *Address_u8TxBuffer,
-                                          u32 *Address_u32TxCounter)
+                                          u32 volatile *Address_u32TxCounter)
 {
     /** @def: Read the flag to send the next byte */
     if( (BIT_GET(Copy_Usart->SR, TXE)) && (BIT_GET(Copy_Usart->CR[0], TXEIE)) )
@@ -476,9 +476,9 @@ static void voidUsartTransmitViaInterrupt(ST_USART_REGISTERS_t *Copy_Usart,
         }
     }else { return; }
 }/** @end voidUsartSendViaInterrupt */
-static void voidUsartRecieveViaInterrupt(ST_USART_REGISTERS_t *Copy_Usart,
+static void voidUsartRecieveViaInterrupt(ST_USART_REGISTERS_t volatile *Copy_Usart,
                                          u8 *Address_u8RxBuffer,
-                                         u32 *Address_u32RxCounter)
+                                         u32 volatile *Address_u32RxCounter)
 {
    /** @def: Read the flag to get the next byte */
     if( (BIT_GET(Copy_Usart->SR, RXNE)) && (BIT_GET(Copy_Usart->CR[0], RXENIE)) )

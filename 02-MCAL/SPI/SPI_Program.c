@@ -7,7 +7,7 @@
 #include "../../01-LIB//STD_TYPES.h"
 #include "../../01-LIB/BIT_MATH.h"
 
-#include "../2-DIO/DIO_Interface.h"
+#include "../02-DIO/DIO_Interface.h"
 #include "SPI_Private.h" 
 #include "SPI_Config.h" 
 #include "SPI_Interface.h" 
@@ -166,6 +166,16 @@ void SPI2_voidInit(void)
 {
 
 }/** @end SPI2_voidInit */
+
+void SPI2_voidTransmitDataSync(u8 Copy_u8Data)
+{
+
+}/** @end SPI2_voidTransmitDataSync*/
+
+void SPI2_voidReceiveDataSync(u8 Copy_u8Data)
+{
+
+} /** @end SPI2_voidReceiveDataSync */
 
 void SPI2_voidSetCallBackFunction(SPI_CallBackFunction_t SPI2_CallBackFunction)
 {

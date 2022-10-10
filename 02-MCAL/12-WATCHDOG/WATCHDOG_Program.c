@@ -19,6 +19,8 @@
 ----------------------------------------------------------------------------------------------------
 */
 
+u8 G_u8WWDTtimeOut;
+
 /*
 ----------------------------------------------------------------------------------------------------
 !-                                WATCHDOG  Function  PROGRAM
@@ -54,26 +56,61 @@ void IWDT_voidCounterStop(void)
 }/** @end IWDT_voidCounterStop */
 
 
-void WWDT_voidInit(void)
+void WWDT_voidStart(float millis)
 {
-     /* Enable */
-    BIT_GET(WWDT->CR, BIT7);
-    /* Set the prescaler */
-    REG_WRT(WWDT->PR, (7>>WWDT_PRESCALER_VALUE));
-}
-void WWDT_voidDisable(void)
-{
-    /* Disable */
-    BIT_CLR(WWDT->CR, BIT7);
-}
-void WWDT_voidCounterStart(u16 Copy_u16ResetValue)
-{
-     /* Write the key to access the registers */
-    u16 Local_u16CounterValue = Copy_u16ResetValue;
+    /* Disable the periphral */
+    BIT_CLR(WWDT->CR, 7);
+    /* Clear prescaler */
+    WWDT->CFR &= (u32) (~(0b11 << 7u));
 
-    REG_WRT(IWDT->KR, (u32)(IWDT_START_KEY & 0xFFFFU));
-}
-void WWDT_voidCounterStop(void);
+    if( (millis < 9.0) )
+    {
+        WWDT->CFR |= (u32) ((WWDT_PRESCALER_1 << 7u));
+        G_u8WWDTtimeOut = (u8) WWDT_EQ(millis, 1);
+    }
+    else if( (millis <  16.0) )
+    {
+        WWDT->CFR |= (u32) ((WWDT_PRESCALER_2 << 7u));
+        G_u8WWDTtimeOut = (u8) WWDT_EQ(millis, 2);
+    }
+    else if( (millis < 31.0) )
+    {
+        WWDT->CFR |= (u32) ((WWDT_PRESCALER_4 << 7u));
+        G_u8WWDTtimeOut = (u8) WWDT_EQ(millis, 4);
+    }
+    else if( (millis < 60.0) )
+    {
+        WWDT->CFR |= (u32) ((WWDT_PRESCALER_8 << 7u));
+        G_u8WWDTtimeOut = (u8) WWDT_EQ(millis, 8);
+    }
+    else {;}
+
+    WWDT->CR  &= (u32) (~(0x3F));
+    WWDT->CR  |= (u32) ((1 << 6u) | (G_u8WWDTtimeOut));
+    WWDT->CFR |= (u32) (G_u8WWDTtimeOut - 20u);
+
+    /* Enable the periphral */
+    BIT_SET(WWDT->CR, 7);
+}/** @end WWDT_voidStart */
+
+void WWDT_voidRestart(void)
+{
+    u8 L_u8Time = ( (WWDT->CFR) & (0x7F) );
+    u8 L_u8Counter = ( (WWDT->CR) & (0x3F) );
+
+    if( (L_u8Counter < L_u8Time) && (L_u8Counter > 63) )
+    {
+        WWDT->CR |= ( (1 << 6u) | G_u8WWDTtimeOut);
+    }
+    else{;}
+}/** @end WWDT_voidRestart */
+
+void WWDT_voidStop(void)
+{
+    /* Disable the periphral */
+    BIT_CLR(WWDT->CR, 7);
+}/** @end WWDT_voidStop */
+
 /*
 ----------------------------------------------------------------------------------------------------
 !-                                  WATCHDOG Function  PRIVATE

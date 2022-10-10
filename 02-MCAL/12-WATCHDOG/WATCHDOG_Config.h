@@ -20,7 +20,6 @@
  *  RL = ----------------
  *       4 * 2^PS * 1000
  */
-
 /**
  * @brief: The prescaler value for the counter
  * @def: Configuration Parameters
@@ -41,7 +40,7 @@
  *  t_WWD(ms) = ------------- * (T[5:0]+1)
  *               F_PCLK(hz)
  *
-
+ */
 /**
  * @brief: The prescaler value for the counter
  * @def: Configuration Parameters
@@ -50,6 +49,6 @@
  * - WWDT_PRESCALER_4 
  * - WWDT_PRESCALER_8 
  */
-#define WWDT_PRESCALER_VALUE    WIWDT_PRESCALER_8)
+#define WWDT_PRESCALER_VALUE    (WWDT_PRESCALER_8)
 
 #endif /* _WATCHDOG_CONFIG_H */
