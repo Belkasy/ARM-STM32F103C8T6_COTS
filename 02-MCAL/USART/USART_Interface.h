@@ -28,12 +28,12 @@ enum USART_MODE
 {
     USART_Transmitter,
     USART_Reciever,
-	USART_TransmitterxReciever
+		USART_TransmitterxReciever
 };
 
 enum PARITY_MODES
 {
-	Parity_NONE = 0,
+		Parity_NONE = 0,
     Parity_EVEN = 0,
     Pairty_ODD	= 1
 };

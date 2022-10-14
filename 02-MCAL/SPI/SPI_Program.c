@@ -1,9 +1,9 @@
 /**
- * @author: Mohamed Ashraf
- * @date: Oct  4 2022
- * @dersion: V0.0
- * @copyrights: Copyrights (c) Mohamed Wx 2022
- */
+ * @version     v1.0
+ * @authors     Abdelrahman Belkasy, Wx
+ * @date        19 Aug 2022
+ * @copyright   Belkasy, Wx
+*/
 #include "../../01-LIB//STD_TYPES.h"
 #include "../../01-LIB/BIT_MATH.h"
 

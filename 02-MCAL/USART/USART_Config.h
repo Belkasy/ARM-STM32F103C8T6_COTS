@@ -19,4 +19,5 @@
 #define SYSTEM_CLOCK 		(1000000U)
 
 #define BRR_VALUE	(0x0068)	/** @note: 1M Hz - 9600b/s */
+
 #endif /* _USART_CONFIG_H */

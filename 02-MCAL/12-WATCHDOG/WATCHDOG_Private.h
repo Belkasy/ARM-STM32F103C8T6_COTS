@@ -1,5 +1,4 @@
 /**
- * @name        WATCHDOG_Private.h
  * @version     v1.0
  * @authors     Abdelrahman Belkasy, Wx
  * @date        19 Aug 2022

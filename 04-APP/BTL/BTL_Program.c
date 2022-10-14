@@ -1,5 +1,5 @@
 /**
- * @author: Mohamed Ashraf
+ * @authors     Abdelrahman Belkasy, Wx
  * @date: Oct  4 2022
  * @dersion: V0.0
  * @copyrights: Copyrights (c) Mohamed Wx, Abdelrahman Elbelkasy 2022
@@ -45,8 +45,9 @@ void BTL_voidInit(void)
     /** @defgroup: RCC Inits */
     RCC_voidSystemClockInit(SYSTEM_CLOCK);
     RCC_voidEnableClock(AHB_ID, FPEC);
+		RCC_voidEnableClock(APB2_ID, IOPAEN);
+		RCC_voidEnableClock(APB2_ID, AFIOEN);
     RCC_voidEnableClock(APB2_ID, USART1EN);
-    RCC_voidEnableClock(APB2_ID, IOPAEN);
 
     /** @defgroup: GPIOA Inits */
     DIO_voidSetPinStatus(PORTA_ID, PIN_9, DIO_AFIO_PUSHPULL_50MHZ); // MCU-Tx
